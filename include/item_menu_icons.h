@@ -31,4 +31,12 @@ void ShakeBagSprite(void);
 const u32 *GetItemIconGfxPtr(u16 itemId, u8 ptrId);
 void CreateBagSprite(u8 animNum);
 
+//New Registered Item Menu
+/*void LoadListMenuSwapLineGfx_RegisteredItemsMenu();
+void CreateSwapLineSprites_RegisteredItemsMenu(u8 *spriteIds, u8 count);
+void DestroySwapLineSprites(u8 *spriteIds, u8 count);
+void SetSwapLineSpritesInvisibility(u8 *spriteIds, u8 count, bool8 invisible);
+void UpdateSwapLineSpritesPos(u8 *spriteIds, u8 count, s16 x, u16 y);*/
+void SetCursorWithinListBounds(u16 *scrollOffset, u16 *cursorPos, u8 maxShownItems, u8 totalItems);
+
 #endif // GUARD_ITEM_MENU_ICONS

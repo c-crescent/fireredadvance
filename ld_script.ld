@@ -605,7 +605,8 @@ SECTIONS {
         src/keyboard_text.o(.rodata);
         src/trainer_tower_sets.o(.rodata);
         src/move_descriptions.o(.rodata);
-
+        src/tx_registered_items_menu.o(.rodata);
+    
         /* These should not be moved to C files */
         src/mystery_event_msg.o(.rodata);
         data/mystery_event_msg.o(.rodata);
