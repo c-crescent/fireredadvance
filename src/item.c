@@ -23,6 +23,11 @@ u16 GetBagItemQuantity(u16 * ptr)
     return gSaveBlock2Ptr->encryptionKey ^ *ptr;
 }
 
+void ItemId_GetHoldEffectParam_Script()
+{
+    VarSet(VAR_RESULT, ItemId_GetHoldEffectParam(VarGet(VAR_0x8004)));
+}
+
 void SetBagItemQuantity(u16 * ptr, u16 value)
 {
     *ptr = value ^ gSaveBlock2Ptr->encryptionKey;
