@@ -92,6 +92,7 @@ static void BattleIntroDrawTrainersOrMonsSprites(void);
 static void BattleIntroDrawPartySummaryScreens(void);
 static void BattleIntroPrintTrainerWantsToBattle(void);
 static void BattleIntroPrintWildMonAttacked(void);
+static void BattleIntroQuickRun(void);
 static void BattleIntroPrintOpponentSendsOut(void);
 static void BattleIntroPrintPlayerSendsOut(void);
 static void BattleIntroRecordMonsToDex(void);
@@ -2726,13 +2727,28 @@ static void BattleIntroPrintWildMonAttacked(void)
 {
     if (gBattleControllerExecFlags == 0)
     {
-        gBattleMainFunc = BattleIntroPrintPlayerSendsOut;
+        gBattleMainFunc = BattleIntroQuickRun;
         PrepareStringBattle(STRINGID_INTROMSG, 0);
         if (IS_BATTLE_TYPE_GHOST_WITH_SCOPE(gBattleTypeFlags))
         {
             gBattleScripting.battler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
             BattleScriptExecute(BattleScript_SilphScopeUnveiled);
         }
+    }
+}
+
+static void BattleIntroQuickRun(void)
+{
+    if (gBattleControllerExecFlags == 0)
+    {
+        if (JOY_HELD(DPAD_RIGHT)){
+            if (!IsRunningFromBattleImpossible() && TryRunFromBattle(gBattlerAttacker)){
+                gBattleMainFunc = HandleEndTurn_RanFromBattle;
+                return;
+            }
+            PrepareStringBattle(STRINGID_CANTESCAPE, 0);
+        }
+        gBattleMainFunc = BattleIntroPrintPlayerSendsOut;
     }
 }
 

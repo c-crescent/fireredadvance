@@ -1760,6 +1760,9 @@ void BufferStringBattle(u16 stringId)
             }
         }
         break;
+    case STRINGID_CANTESCAPE:
+        stringPtr = sText_CantEscape;
+        break;        
     default: // load a string from the table
         if (stringId >= BATTLESTRINGS_COUNT)
         {
