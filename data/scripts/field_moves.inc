@@ -283,3 +283,9 @@ EventScript_FailSweetScent::
 
 Text_LooksLikeNothingHere::
 	.string "Looks like there's nothing here…$"
+
+@AutoRunDisabled:
+@    .string "Auto Run {COLOR RED}Disabled{COLOR DARK_GREY}.$"
+    
+@AutoRunEnabled:
+@    .string "Auto Run {COLOR GREEN}Enabled{COLOR DARK_GREY}.$"
